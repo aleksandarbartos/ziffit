@@ -1,5 +1,7 @@
 {
-  "name": "my-new-project",
+  "name": "ziffit-test-project",
+  "version": "1.0.0",
+  "description": "Smoke test project for Ziffit Web application",
   "type": "module",
   "devDependencies": {
     "@wdio/cli": "^8.29.7",
@@ -10,6 +12,8 @@
     "typescript": "^5.3.3"
   },
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.ts"
+    "install": "npm install",
+    "setup": "npm ci",
+    "test": "wdio run ./wdio.conf.ts"
   }
 }
