@@ -12,7 +12,6 @@
     "typescript": "^5.3.3"
   },
   "scripts": {
-    "install": "npm install",
     "setup": "npm ci",
     "test": "wdio run ./wdio.conf.ts"
   }
