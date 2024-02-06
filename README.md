@@ -1,9 +1,3 @@
----
-runme:
-  id: 01HNZE79RCH4YTWPJ0RH992YPY
-  version: v2.2
----
-
 ### Project to run Smoke tests on Ziffit Web application
 
 #### Introduction
