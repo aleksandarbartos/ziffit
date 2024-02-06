@@ -1,41 +1,62 @@
+---
+runme:
+  id: 01HNZE79RCH4YTWPJ0RH992YPY
+  version: v2.2
+---
+
 ### Project to run Smoke tests on Ziffit Web application
 
 #### Introduction
+
 This project was created to execute smoke tests on the Ziffit Web application.
 Disclaimer: the tests are executed in the production environment
 
 ### Installation and set up configuration
+
 1. Clone the project to you local machine using
-```
+
+```text {"id":"01HNZE79RCH4YTWPJ0R743944M"}
 git clone
 ```
+
 2. Open the cloned project folder, open a Terminal and run the following command to install all dependencies:
-```
+
+```sh {"id":"01HNZE79RCH4YTWPJ0R7KG1K1G"}
 npm install
 ```
+
 3. After npm install a node_modules folder and a package-lock.json file should be present in the project directory
-4. Make sure src/testData.ts file contains data
-5. Add your valid Ziffit Production credentials to testData/userData.json file, where email = user email address, password = user password
+4. Make sure the testData folder files contain data and are not empty
+5. In case you have one, you may add your valid Ziffit Production credentials to testData/userData.ts file, where email = user email address, password = user password (valid login is not covered in this test suit)
 
 #### Executable scripts:
+
 To install all dependencies using package.json data
-```
+
+```sh {"id":"01HNZE79RCH4YTWPJ0RAMDY7EC"}
 npm install
 ```
+
 To install all dependencies using package-lock.json data
-```
+
+```sh {"id":"01HNZE79RCH4YTWPJ0RDQ3XP57"}
 npm run setup
 ```
+
 To fix eslint problems
-```
+
+```sh {"id":"01HNZE79RCH4YTWPJ0REJCJGJX"}
 npm run eslint:fix
 ```
+
 To execute the smoke tests
-```
+
+```sh {"id":"01HNZE79RCH4YTWPJ0RFQ2MRQG"}
 npm run test
 ```
 
 #### Addig new tests to the project
+
 Make sure you create a separate branch for the new test development
 
 Before commiting and pushing your changes, run eslint:fix command to ensure code quality
@@ -43,21 +64,22 @@ Before commiting and pushing your changes, run eslint:fix command to ensure code
 Raise a merge request for code review
 
 ### Smoke test cases documentation
+
 | Test case                                                                  | Prerequisites                      | Reproduction steps                                                                                                 | Expected results                                                                                                                                |
 |----------------------------------------------------------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| https://ziffit.com/ should open main page with en-gb location              | -                                  | 1. Open https://ziffit.com/ in the browser                                                                         | https://ziffit.com/en-gb is opened, Location indicator flag is EN-GB                                                                            |
-| Should throw error when clicking "Next" on new user registration without password | Ziffit is opened                   | 1. Click on "Register" 2. Add registration data (firstname, lastname, email address) 3. Click on "Next" | Error is displayed for missing password                                                                                                          |
+| Should open main page with en-gb location when navigating to https://ziffit.com/              | -                                  | 1. Open https://ziffit.com/ in the browser                                                                         | https://ziffit.com/en-gb is opened, Location indicator flag is EN-GB                                                                            |
+| Should throw errors when clicking "Next" on new user registration with invalid password and without password confirmation | Ziffit is opened                   | 1. Click on "Register" 2. Add registration data (firstname, lastname, email address) 3. Click on "Next" | "Invalid password" Error message is displayed for password not meeting criteria , "Invalid" error message is displayed for confirm password confirmation                                                                                                         |
 | Should not log in with invalid credentials                                 | Ziffit is opened                   | 1. Click on "Log in" button 2. Enter invalid username and password 3. Click on "Log in"                            | User is not logged in, error message is displayed                                                                                               |
 | Should log in with valid credentials                                       | Ziffit is opened                   | 1. Click on "Log in" button 2. Enter valid username and password 3. Click on "Log in"                              | User is logged in successfully                                                                                                                  |
-| Should open menu item from menubar                                         | Ziffit is opened User is logged in | 1. Click on "Sell" menu item                                                                                       | https://www.ziffit.com/en-gb/sell-my-books is opened Page title is "Sell my books online"                                                       |
-| Should have responsive menu based on width                                 | Ziffit is opened User is logged in | 1. Change window width to 500px 2. Click on "Hamburger menu"                                                       | "Sell" menu item is not displayed "Hamburger menu" is displayed and clickable "Hambuerger menu" contains menu items and "Log in" and "Register" |
-| Should open basket but not return value after adding invalid barcode       | Ziffit is opened User is logged in | 1. Add invalid barcode to the input field                                                                          | Basket is opened (https://www.ziffit.com/en-gb/basket) Error message is displayed that the barcode is invalid                                   |
-| Should open basket and return value after adding valid barcode             | Ziffit is opened User is logged in | 1. Add valid barcode to the input field                                                                            | Basket is opened (https://www.ziffit.com/en-gb/basket) Value for the scanned item is displayed                                                  |
-| Should open Basket when clicking on the icon                               | Ziffit is opened User is logged in | 1. Click on "Basket" icon                                                                                          | Basket is opened (https://www.ziffit.com/en-gb/basket)                                                                                          |
-| Should not allow to complete trade with only 1 scanned item                | Ziffit is opened User is logged in | 1. Add valid barcode to the input field                                                                            | Basket is opened (https://www.ziffit.com/en-gb/basket) "Complete Trade" is disabled (not clickable)                                             |
-| Should allow to complete trade with 10+ scanned items                      | Ziffit is opened User is logged in | 1. Add 10+ valid barcodes to the input field                                                                       | Basket is opened (https://www.ziffit.com/en-gb/basket) "Complete Trade" is enabled (is clickable)                                               |
-| Should open "Trading rules" section                                        | Ziffit is opened User is logged in | 1. Open Basket 2. Click on "Trading rules" link                                                                    | Trading rules dropdown is opened                                                                                                                |
-| Should open "Rejecting reasons" section                                    | Ziffit is opened User is logged in | 1. Open Basket 2. Click on "Rejecting reasons" link                                                                | Rejecting reasons dropdown is opened                                                                                                            |
-| Should clear Basket                                                        | Ziffit is opened User is logged in | 1. Add valid barcode to the input field 2. In Basket, click on "Clear" button                                      | Scanned item is removed from the basket                                                                                                         |
+| Should open menu item from menubar                                         | Ziffit is opened | 1. Click on "Sell" menu item                                                                                       | https://www.ziffit.com/en-gb/sell-my-books is opened Page title is "Sell my books online"                                                       |
+| Should have responsive menu based on width                                 | Ziffit is opened | 1. Change window width to 500px 2. Click on "Hamburger menu"                                                       | "Sell" menu item is not displayed "Hamburger menu" is displayed and clickable "Hambuerger menu" contains menu items and "Log in" and "Register" |
+| Should open basket but not return value after adding invalid barcode       | Ziffit is opened | 1. Add invalid barcode to the input field                                                                          | Basket is opened (https://www.ziffit.com/en-gb/basket) Error message is displayed that the barcode is invalid                                   |
+| Should open basket and return value after adding valid barcode             | Ziffit is opened | 1. Add valid barcode to the input field                                                                            | Basket is opened (https://www.ziffit.com/en-gb/basket) Value for the scanned item is displayed                                                  |
+| Should open Basket when clicking on the icon                               | Ziffit is opened | 1. Click on "Basket" icon                                                                                          | Basket is opened (https://www.ziffit.com/en-gb/basket)                                                                                          |
+| Should not allow to complete trade with only 1 scanned item                | Ziffit is opened | 1. Add valid barcode to the input field                                                                            | Basket is opened (https://www.ziffit.com/en-gb/basket) "Complete Trade" is disabled (not clickable)                                             |
+| Should allow to complete trade with 10+ scanned items                      | Ziffit is opened | 1. Add 10+ valid barcodes to the input field                                                                       | Basket is opened (https://www.ziffit.com/en-gb/basket) "Complete Trade" is enabled (is clickable)                                               |
+| Should open "Trading rules" section                                        | Ziffit is opened | 1. Open Basket 2. Click on "Trading rules" link                                                                    | Trading rules dropdown is opened                                                                                                                |
+| Should open "Rejecting reasons" section                                    | Ziffit is opened | 1. Open Basket 2. Click on "Rejecting reasons" link                                                                | Rejecting reasons dropdown is opened                                                                                                            |
+| Should remove item from Basket                                                        | Ziffit is opened | 1. Add valid barcode to the input field 2. In Basket, click on "Remove" icon for the added item                                      | Added item is removed from the basket, the list is empty                                                                                                         |
 | Should open "Contact Us" page                                              | Ziffit is opened                   | 1. Click on "Contact Us" link in the footer                                                                        | https://www.ziffit.com/en-gb/ziffit-app is opened                                                                                               |
 | Should open "Download App" page                                            | Ziffit is opened                   | 1. Click on "Ziffit App" link in the footer                                                                        | https://www.ziffit.com/en-gb/contact-us is opened                                                                                               |
