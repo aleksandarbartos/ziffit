@@ -1,0 +1,11 @@
+{
+    "barcodes": {
+        "invalid": "fdsjoagfdga",
+        "valid": ""
+    },
+    "registration": {
+        "firstName": "",
+        "lastName": "",
+        "email": ""
+    }
+}
