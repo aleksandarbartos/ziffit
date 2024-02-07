@@ -27,7 +27,6 @@ npm install
 
 3. After npm install a node_modules folder and a package-lock.json file should be present in the project directory
 4. Make sure the testData folder files contain data and are not empty
-5. In case you have one, you may add your valid Ziffit Production credentials to testData/userData.ts file, where email = user email address, password = user password (valid login is not covered in this test suit)
 
 ### Executable scripts:
 
