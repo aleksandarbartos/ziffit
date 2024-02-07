@@ -33,13 +33,19 @@ class RegistrationPage extends MainPage {
 
 	//methods
 	public async addRegistrationData(firstName: string, lastName: string, email: string, password: string) {
+		await this.firstName.waitForDisplayed();
 		await this.firstName.addValue(firstName);
+		await this.lastName.waitForDisplayed();
 		await this.lastName.addValue(lastName);
+		await this.email.waitForDisplayed();
 		await this.email.addValue(email);
+		await this.password.waitForDisplayed();
 		await this.password.addValue(password);
 		/* Commenting out for test purposes
+		await this.passwordConfirmation.waitForDisplayed();
 		await this.passwordConfirmation.addValue(password);
 		*/
+		await this.nextBtn.waitForClickable();
 		await this.nextBtn.click();
 	}
 }

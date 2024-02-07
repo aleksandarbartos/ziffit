@@ -20,9 +20,12 @@ class LoginPage extends MainPage {
 	}
 
 	//methods
-	public async login (username: string, password: string) {
-		await this.inputEmail.setValue(username);
+	public async login (email: string, password: string) {
+		await this.inputEmail.waitForDisplayed();
+		await this.inputEmail.setValue(email);
+		await this.inputPassword.waitForDisplayed();
 		await this.inputPassword.setValue(password);
+		await this.loginButton.waitForClickable();
 		await this.loginButton.click();
 	}
 }
