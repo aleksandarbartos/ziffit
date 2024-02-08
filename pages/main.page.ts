@@ -68,11 +68,11 @@ export default class MainPage {
 	}
 
 	public static get contactUs () {
-		return $$('a[href*="contact-us"]'); //cannot find unique selector, indexing used in methods and tests
+		return $('div.col-sm-3>ul>li>a[href*="contact-us"]');
 	}
 
 	public static get ziffitApp () {
-		return $$('a[href*="ziffit-app"]'); //cannot find unique selector, indexing used in methods and tests
+		return $('div.col-sm-3>ul>li>a[href*="ziffit-app"]');
 	}
 
 	public static get subscriptionBox () {
@@ -158,12 +158,12 @@ export default class MainPage {
 	}
 
 	public static async footerOpenContactUs () {
-		await this.contactUs[1].waitForClickable();
-		await this.contactUs[1].click();
+		await this.contactUs.waitForClickable();
+		await this.contactUs.click();
 	}
 
 	public static async footerOpenZiffitApp () {
-		await this.ziffitApp[2].waitForClickable();
-		await this.ziffitApp[2].click();
+		await this.ziffitApp.waitForClickable();
+		await this.ziffitApp.click();
 	}
 }

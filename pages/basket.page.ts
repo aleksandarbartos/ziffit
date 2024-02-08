@@ -10,7 +10,7 @@ class BasketPage extends MainPage {
 	}
 
 	public get totalComputedValue () {
-		return $$('.basketblock label'); //cannot find unique selector, indexing used in methods and tests
+		return $('.col-md-3 .basketblock label:nth-child(2)');
 	}
 
 	public get completeTradeBtn () {
@@ -26,27 +26,27 @@ class BasketPage extends MainPage {
 	}
 
 	public get tradingRulesDropdown () {
-		return $$('#title1'); //cannot find unique selector, indexing used in methods and tests
+		return $('.visible-md > .faqitem:nth-of-type(1)');
 	}
 
 	public get rejectingReasonsDropdown () {
-		return $$('#title2'); //cannot find unique selector, indexing used in methods and tests
+		return $('.visible-md > .faqitem:nth-of-type(2)');
 	}
 
 	public get tradingRulesContent () {
-		return $$('#faqcontent1'); //cannot find unique selector, indexing used in methods and tests
+		return $('.visible-md > .faqitem:nth-of-type(1) > #faqcontent1');
 	}
 
 	public get rejectingReasonsContent () {
-		return $$('#faqcontent2'); //cannot find unique selector, indexing used in methods and tests
+		return $('.visible-md > .faqitem:nth-of-type(2) > #faqcontent2');
 	}
 
 	public get listItemTitle () {
-		return $$('[data-label="Title"]'); //cannot find unique selector, indexing used in methods and tests
+		return $$('[data-label="Title"]');
 	}
 
 	public get listItemRemove () {
-		return $$('[data-label="Remove"]'); //cannot find unique selector, indexing used in methods and tests
+		return $$('[data-label="Remove"]');
 	}
 
 	public get successBanner () {
@@ -69,13 +69,13 @@ class BasketPage extends MainPage {
 	}
 
 	public async openTradingRules () {
-		await this.tradingRulesDropdown[0].waitForClickable();
-		await this.tradingRulesDropdown[0].click();
+		await this.tradingRulesDropdown.waitForClickable();
+		await this.tradingRulesDropdown.click();
 	}
 
 	public async openRejectingReasons () {
-		await this.rejectingReasonsDropdown[0].waitForClickable();
-		await this.rejectingReasonsDropdown[0].click();
+		await this.rejectingReasonsDropdown.waitForClickable();
+		await this.rejectingReasonsDropdown.click();
 	}
 
 	public async removeItem (listItemNumber: number) {

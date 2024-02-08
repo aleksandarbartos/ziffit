@@ -96,10 +96,9 @@ Not covered test cases in the Smoke suit as the tests run on Production environm
 
 ### Possibly unstable solutions due to application structure
 
-- Some  selectors could not be precisely defined, as multiple elements share the same selectors, findElements method with indexing was used for these:
-   - MainPage.contactUs, MainPage.ziffitApp footer items
+- Some selectors could not be precisely defined, as multiple elements share the same selectors, findElements method with indexing was used for these:
    - RegistrationPage.requiredErrorMessage
-   - BasketPage.totalComputedValue, BasketPage.tradingRulesDropdown, BasketPage.tradingRulesContent, BasketPage.rejectingReasonsDropdown, BasketPage.rejectingReasonsContent, BasketPage.listItemTitle, BasketPage.listItemRemove
+   - BasketPage.listItemTitle, BasketPage.listItemRemove (findElements used on purpose to enable deletion of any item in the list)
 
 ### Smoke test suit
 

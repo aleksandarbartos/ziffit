@@ -28,7 +28,7 @@ class RegistrationPage extends MainPage {
 	}
 
 	public get requiredErrorMessage () {
-		return $$('.validation-error'); //cannot find unique selector, indexing used in methods and tests
+		return $$('div.form-group > div.col-sm-12 > p.validation-error'); //cannot find unique selector, indexing used in methods and tests
 	}
 
 	//methods

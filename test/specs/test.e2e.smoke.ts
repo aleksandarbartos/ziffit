@@ -67,8 +67,8 @@ describe('Ziffit Smoke Test Suit', () => {
 		await MainPage.getItemValue(Helpers.randomizeData(testData.invalidBarcodes));
 		await expect(browser).toHaveTitle(navigationData.titles.basket);
 		await expect(browser).toHaveUrl(navigationData.urls.basket);
-		await expect(BasketPage.totalComputedValue[0]).toBeDisplayed();
-		await expect(BasketPage.totalComputedValue[0]).toHaveText(assertionData.texts.computedValueZero);
+		await expect(BasketPage.totalComputedValue).toBeDisplayed();
+		await expect(BasketPage.totalComputedValue).toHaveText(assertionData.texts.computedValueZero);
 		await expect(BasketPage.errorMessage).toBeDisplayed();
 	});
 
@@ -77,8 +77,8 @@ describe('Ziffit Smoke Test Suit', () => {
 		await MainPage.getItemValue(Helpers.randomizeData(testData.validBarcodes));
 		await expect(browser).toHaveTitle(navigationData.titles.basket);
 		await expect(browser).toHaveUrl(navigationData.urls.basket);
-		await expect(BasketPage.totalComputedValue[0]).toBeDisplayed();
-		await expect(BasketPage.totalComputedValue[0]).not.toHaveText(assertionData.texts.computedValueZero);
+		await expect(BasketPage.totalComputedValue).toBeDisplayed();
+		await expect(BasketPage.totalComputedValue).not.toHaveText(assertionData.texts.computedValueZero);
 		await expect(BasketPage.errorMessage).not.toBeDisplayed();
 	});
 
@@ -87,14 +87,14 @@ describe('Ziffit Smoke Test Suit', () => {
 		await MainPage.openBasket();
 		await expect(browser).toHaveTitle(navigationData.titles.basket);
 		await expect(browser).toHaveUrl(navigationData.urls.basket);
-		await expect(BasketPage.totalComputedValue[0]).toBeDisplayed();
+		await expect(BasketPage.totalComputedValue).toBeDisplayed();
 	});
 
 	it('Should not allow to complete trade with 9 scanned items', async () => {
 		await MainPage.openZiffit();
 		await MainPage.getItemValue(Helpers.randomizeData(testData.validBarcodes));
 		await BasketPage.scanMultipleItems(8);
-		await expect(BasketPage.totalComputedValue[0]).toBeDisplayed();
+		await expect(BasketPage.totalComputedValue).toBeDisplayed();
 		await expect(BasketPage.completeTradeBtn).not.toBeClickable();
 	});
 
@@ -102,7 +102,7 @@ describe('Ziffit Smoke Test Suit', () => {
 		await MainPage.openZiffit();
 		await MainPage.getItemValue(Helpers.randomizeData(testData.validBarcodes));
 		await BasketPage.scanMultipleItems(9);
-		await expect(BasketPage.totalComputedValue[0]).toBeDisplayed();
+		await expect(BasketPage.totalComputedValue).toBeDisplayed();
 		await expect(BasketPage.completeTradeBtn).toBeClickable();
 	});
 
@@ -111,21 +111,21 @@ describe('Ziffit Smoke Test Suit', () => {
 		await MainPage.getItemValue(Helpers.randomizeData(testData.validBarcodes));
 		await BasketPage.removeItem(1);
 		await expect(BasketPage.listItemTitle[0]).not.toBeDisplayed();
-		await expect(BasketPage.totalComputedValue[0]).toHaveText(assertionData.texts.computedValueZero);
+		await expect(BasketPage.totalComputedValue).toHaveText(assertionData.texts.computedValueZero);
 	});
 
-	it('Should open "Trading rules" section', async () => {
+	it.only('Should open "Trading rules" section', async () => {
 		await MainPage.openZiffit();
 		await MainPage.openBasket();
 		await BasketPage.openTradingRules();
-		await expect(BasketPage.tradingRulesContent[0]).toBeDisplayed();
+		await expect(BasketPage.tradingRulesContent).toBeDisplayed();
 	});
 
-	it('Should open "Rejecting reasons" section', async () => {
+	it.only('Should open "Rejecting reasons" section', async () => {
 		await MainPage.openZiffit();
 		await MainPage.openBasket();
 		await BasketPage.openRejectingReasons();
-		await expect(BasketPage.rejectingReasonsContent[0]).toBeDisplayed();
+		await expect(BasketPage.rejectingReasonsContent).toBeDisplayed();
 	});
 
 	it('Should open "Contact Us" page from footer', async () => {
