@@ -1,7 +1,7 @@
 import MainPage from './main.page.js';
 import { $ } from '@wdio/globals';
-import { randomizeData } from '../helpers/helpers.js';
-import { testData } from '../testData/testData.js';
+import { Helpers } from '../src/helpers.js';
+import { testData } from '../test/testData/testData.js';
 
 class BasketPage extends MainPage {
 	//selectors
@@ -62,7 +62,8 @@ class BasketPage extends MainPage {
     }
     public async scanMultipleItems (scanItem: number) {
         for (let i = 0; i < scanItem; i++) {
-            await this.addBarcode(randomizeData(testData.validBarcodes));
+            await this.addBarcode(Helpers.randomizeData(testData.validBarcodes));
+            await this.getValueBtn.waitForClickable();
             await this.successBanner.waitForDisplayed();
         }
     }

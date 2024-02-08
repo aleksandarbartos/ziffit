@@ -1,6 +1,6 @@
 import { browser } from '@wdio/globals';
-import { MenuItems } from '../helpers/helpers.js';
-import { navigationData } from '../testData/navigationData.ts';
+import { Helpers } from '../src/helpers.js';
+import { navigationData } from '../test/testData/navigationData.ts';
 
 export default class MainPage {
 	public static get languageSwitcher () {
@@ -113,25 +113,25 @@ export default class MainPage {
 		await this.registration.click();
 	}
 
-	public static async clickMenuItem(menuItem: MenuItems) {
+	public static async clickMenuItem(menuItem: Helpers.MenuItems) {
 		switch (menuItem) {
-			case MenuItems.Sell:
+			case Helpers.MenuItems.Sell:
 				await this.menuSell.waitForClickable();
 				await this.menuSell.click();
 				break;
-			case MenuItems.HowItWorks:
+			case Helpers.MenuItems.HowItWorks:
 				await this.menuHowItWorks.waitForClickable();
 				await this.menuHowItWorks.click();
 				break;
-			case MenuItems.ZiffitApp:
+			case Helpers.MenuItems.ZiffitApp:
 				await this.menuZiffitApp.waitForClickable();
 				await this.menuZiffitApp.click();
 				break;
-			case MenuItems.AboutUs:
+			case Helpers.MenuItems.AboutUs:
 				await this.menuAboutUs.waitForClickable();
 				await this.menuAboutUs.click();
 				break;
-			case MenuItems.Help:
+			case Helpers.MenuItems.Help:
 				await this.menuHelp.waitForClickable();
 				await this.menuHelp.click();
 				break;
@@ -147,6 +147,9 @@ export default class MainPage {
 		await this.addBarcode(barcode);
 		await this.getValueBtn.waitForClickable();
 		await this.getValueBtn.click();
+		await browser.waitUntil(async () => {
+			return await browser.getUrl() === navigationData.urls.basket;
+		});
 	}
 
 	public static async openBasket () {
