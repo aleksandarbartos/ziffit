@@ -115,26 +115,26 @@ export default class MainPage {
 
 	public static async clickMenuItem(menuItem: Helpers.MenuItems) {
 		switch (menuItem) {
-			case Helpers.MenuItems.Sell:
-				await this.menuSell.waitForClickable();
-				await this.menuSell.click();
-				break;
-			case Helpers.MenuItems.HowItWorks:
-				await this.menuHowItWorks.waitForClickable();
-				await this.menuHowItWorks.click();
-				break;
-			case Helpers.MenuItems.ZiffitApp:
-				await this.menuZiffitApp.waitForClickable();
-				await this.menuZiffitApp.click();
-				break;
-			case Helpers.MenuItems.AboutUs:
-				await this.menuAboutUs.waitForClickable();
-				await this.menuAboutUs.click();
-				break;
-			case Helpers.MenuItems.Help:
-				await this.menuHelp.waitForClickable();
-				await this.menuHelp.click();
-				break;
+		case Helpers.MenuItems.Sell:
+			await this.menuSell.waitForClickable();
+			await this.menuSell.click();
+			break;
+		case Helpers.MenuItems.HowItWorks:
+			await this.menuHowItWorks.waitForClickable();
+			await this.menuHowItWorks.click();
+			break;
+		case Helpers.MenuItems.ZiffitApp:
+			await this.menuZiffitApp.waitForClickable();
+			await this.menuZiffitApp.click();
+			break;
+		case Helpers.MenuItems.AboutUs:
+			await this.menuAboutUs.waitForClickable();
+			await this.menuAboutUs.click();
+			break;
+		case Helpers.MenuItems.Help:
+			await this.menuHelp.waitForClickable();
+			await this.menuHelp.click();
+			break;
 		}
 	}
 

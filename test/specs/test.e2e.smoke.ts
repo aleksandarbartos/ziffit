@@ -25,10 +25,10 @@ describe('Ziffit Smoke Test Suit', () => {
 	it('Should throw errors for new user registration with valid firstname, lastname, email but invalid password and missing confirmation', async () => {
 		await MainPage.openZiffit();
 		await MainPage.openRegistration();
-		var firstname = await Helpers.getFirstname();
-		var lastname = await Helpers.getLastname();
-		var email = await Helpers.getEmail();
-		var password = await Helpers.getPassword();
+		const firstname = await Helpers.getFirstname();
+		const lastname = await Helpers.getLastname();
+		const email = await Helpers.getEmail();
+		const password = await Helpers.getPassword();
 		await RegistrationPage.addRegistrationData(firstname, lastname, email, password);
 		await expect(RegistrationPage.requiredErrorMessage[0]).toHaveText(assertionData.errorMessages.invalidPassword);
 		await expect(RegistrationPage.requiredErrorMessage[1]).toHaveText(assertionData.errorMessages.required);
@@ -38,8 +38,8 @@ describe('Ziffit Smoke Test Suit', () => {
 	it('Should not log in with invalid credentials', async () => {
 		await MainPage.openZiffit();
 		await MainPage.openLogin();
-		var email = await Helpers.getEmail();
-		var password = await Helpers.getPassword();
+		const email = await Helpers.getEmail();
+		const password = await Helpers.getPassword();
 		await LoginPage.login(email, password);
 		await expect(LoginPage.loginErrorMessage).toBeDisplayed();
 		await expect(LoginPage.loginErrorMessage).toHaveText(assertionData.errorMessages.badLogin);
@@ -140,5 +140,5 @@ describe('Ziffit Smoke Test Suit', () => {
 		await MainPage.footerOpenZiffitApp();
 		await expect(browser).toHaveUrl(navigationData.urls.ziffitApp);
 		await expect(browser).toHaveTitle(navigationData.titles.ziffitApp);
-	})
+	});
 });
