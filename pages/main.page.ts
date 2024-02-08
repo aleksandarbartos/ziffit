@@ -1,6 +1,6 @@
 import { browser } from '@wdio/globals';
+import { MenuItems } from '../helpers/helpers.js';
 import { navigationData } from '../testData/navigationData.ts';
-import { MenuItems } from '../helpers/helpers.js'
 
 export default class MainPage {
 	public static get languageSwitcher () {
@@ -68,11 +68,11 @@ export default class MainPage {
 	}
 
 	public static get contactUs () {
-		return $$('a[href*="contact-us"]');
+		return $$('a[href*="contact-us"]'); //cannot find unique selector, indexing used in methods and tests
 	}
 
 	public static get ziffitApp () {
-		return $$('a[href*="ziffit-app"]');
+		return $$('a[href*="ziffit-app"]'); //cannot find unique selector, indexing used in methods and tests
 	}
 
 	public static get subscriptionBox () {

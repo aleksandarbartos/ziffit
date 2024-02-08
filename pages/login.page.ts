@@ -1,5 +1,5 @@
-import { $ } from '@wdio/globals';
 import MainPage from './main.page.js';
+import { $ } from '@wdio/globals';
 
 class LoginPage extends MainPage {
 	//selectors

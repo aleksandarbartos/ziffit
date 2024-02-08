@@ -1,15 +1,16 @@
-### Project to run Smoke tests on Ziffit Web application
+## Project to run Smoke tests on Ziffit Web application
 
 ### Introduction
 
 This project was created to execute smoke tests on the Ziffit Web application.
 Disclaimer: the tests are executed in the production environment
+
 ### Prerequisites
 NodeJS is installed on the local machine
 
 Git is installed on the local machine
 
-source-code editor is installed on the local machine
+A source-code editor is installed on the local machine
 
 ### Installation and set up configuration
 
@@ -27,7 +28,7 @@ npm install
 
 3. After npm install a node_modules folder and a package-lock.json file should be present in the project directory
 4. Make sure the testData folder files contain data and are not empty
-5. In case you have one, you may add your valid Ziffit Production credentials to testData/userData.ts file, where email = user email address, password = user password (valid login is not covered in this test suit)
+5. In case you have one, you may add your valid Ziffit Production credentials to testData/userData.ts file, where email = user email address, password = user password and it can be used for valid login case (valid login is not covered in this test suit)
 
 ### Executable scripts:
 
@@ -58,7 +59,7 @@ npm run test
 
 helpers folder contains the helpers used in the test execution (ie.: randomizeData function)
 
-pages folder contains the PageObjects (Main page, Login page, Registration page, Basket, Contact us page, Ziffit app download page)
+pages folder contains the PageObjects (Main page, Login page, Registration page, Basket)
 
 test folder contains the test files (test.e2e.smoke)
 
@@ -78,6 +79,14 @@ Not covered test cases in the Smoke suit as the tests run on Production environm
  - Successful login
  - Successful registration
 
+### Possibly unstable solutions due to application structure
+
+ - Some  selectors could not be precisely defined, as multiple elements share the same selectors, findElements method with indexing was used for these:
+    - MainPage.contactUs, MainPage.ziffitApp footer items
+    - RegistrationPage.requiredErrorMessage
+    - BasketPage.totalComputedValue, BasketPage.tradingRulesDropdown, BasketPage.tradingRulesContent, BasketPage.rejectingReasonsDropdown, BasketPage.rejectingReasonsContent, BasketPage.listItemTitle, BasketPage.listItemRemove
+
+### Smoke test suit
 | Test case name                                                     | Test data                      | Reproduction steps                                                                                                 | Expected results                                                                                                                                |
 |----------------------------------------------------------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | Should open main page with en-gb location when navigating to https://ziffit.com/              | -                                  | 1. Open https://ziffit.com/ in the browser                                                                         | https://ziffit.com/en-gb is opened, Location indicator flag is EN-GB                                                                            |

@@ -1,5 +1,5 @@
-import { $ } from '@wdio/globals';
 import MainPage from './main.page.js';
+import { $ } from '@wdio/globals';
 
 class RegistrationPage extends MainPage {
 	//selectors
@@ -28,7 +28,7 @@ class RegistrationPage extends MainPage {
 	}
 
 	public get requiredErrorMessage () {
-		return $$('.validation-error');
+		return $$('.validation-error'); //cannot find unique selector, indexing used in methods and tests
 	}
 
 	//methods

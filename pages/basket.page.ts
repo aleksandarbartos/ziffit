@@ -1,5 +1,5 @@
-import { $ } from '@wdio/globals';
 import MainPage from './main.page.js';
+import { $ } from '@wdio/globals';
 import { randomizeData } from '../helpers/helpers.js';
 import { testData } from '../testData/testData.js';
 
@@ -10,7 +10,7 @@ class BasketPage extends MainPage {
 	}
 
     public get totalComputedValue () {
-        return $$('.basketblock label');
+        return $$('.basketblock label'); //cannot find unique selector, indexing used in methods and tests
     }
 
     public get completeTradeBtn () {
@@ -26,27 +26,27 @@ class BasketPage extends MainPage {
     }
 
     public get tradingRulesDropdown () {
-        return $$('#title1');
+        return $$('#title1'); //cannot find unique selector, indexing used in methods and tests
     }
 
     public get rejectingReasonsDropdown () {
-        return $$('#title2');
+        return $$('#title2'); //cannot find unique selector, indexing used in methods and tests
     }
 
     public get tradingRulesContent () {
-        return $$('#faqcontent1');
+        return $$('#faqcontent1'); //cannot find unique selector, indexing used in methods and tests
     }
 
     public get rejectingReasonsContent () {
-        return $$('#faqcontent2');
+        return $$('#faqcontent2'); //cannot find unique selector, indexing used in methods and tests
     }
 
     public get listItemTitle () {
-        return $$('[data-label="Title"]')
+        return $$('[data-label="Title"]'); //cannot find unique selector, indexing used in methods and tests
     }
 
     public get listItemRemove () {
-        return $$('[data-label="Remove"]')
+        return $$('[data-label="Remove"]'); //cannot find unique selector, indexing used in methods and tests
     }
 
     public get successBanner () {
