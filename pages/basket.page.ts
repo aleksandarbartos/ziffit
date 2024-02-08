@@ -6,7 +6,7 @@ import { testData } from '../test/testData/testData.js';
 class BasketPage extends MainPage {
 	//selectors
 	public get errorMessage () {
-		return $('[class="alert alert-danger"]');
+		return $('.alert-danger');
 	}
 
 	public get totalComputedValue () {
@@ -50,7 +50,7 @@ class BasketPage extends MainPage {
 	}
 
 	public get successBanner () {
-		return $('[class="alert alert-success"]');
+		return $('.alert-success');
 	}
 
 	//methods
@@ -59,12 +59,19 @@ class BasketPage extends MainPage {
 		await this.barcodeInput.addValue(barcode);
 		await this.getValueBtn.waitForClickable();
 		await this.getValueBtn.click();
+		await this.getValueBtn.waitForClickable();
 	}
 	public async scanMultipleItems (scanItem: number) {
 		for (let i = 0; i < scanItem; i++) {
 			await this.addBarcode(Helpers.randomizeData(testData.validBarcodes));
-			await this.getValueBtn.waitForClickable();
-			await this.successBanner.waitForDisplayed();
+			if (await this.errorMessage.isDisplayed() === true) {
+				console.log('Barcode was not added to the input');
+				throw new Error ('Barcode was not added to the input');
+			} else {
+				await this.getValueBtn.waitForClickable();
+				await this.totalComputedValue.waitForDisplayed();
+				await this.successBanner.waitForDisplayed();
+			}
 		}
 	}
 

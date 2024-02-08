@@ -10,10 +10,6 @@ import LoginPage from '../../pages/login.page.js';
 import BasketPage from '../../pages/basket.page.js';
 
 describe('Ziffit Smoke Test Suit', () => {
-	beforeEach(async () => {
-		await browser.reloadSession();
-	});
-
 	it('Should open main page with en-gb location when navigating to https://ziffit.com/', async () => {
 		await MainPage.openZiffit();
 		await expect(MainPage.languageSwitcher).toBeDisplayed();
@@ -114,14 +110,14 @@ describe('Ziffit Smoke Test Suit', () => {
 		await expect(BasketPage.totalComputedValue).toHaveText(assertionData.texts.computedValueZero);
 	});
 
-	it.only('Should open "Trading rules" section', async () => {
+	it('Should open "Trading rules" section', async () => {
 		await MainPage.openZiffit();
 		await MainPage.openBasket();
 		await BasketPage.openTradingRules();
 		await expect(BasketPage.tradingRulesContent).toBeDisplayed();
 	});
 
-	it.only('Should open "Rejecting reasons" section', async () => {
+	it('Should open "Rejecting reasons" section', async () => {
 		await MainPage.openZiffit();
 		await MainPage.openBasket();
 		await BasketPage.openRejectingReasons();

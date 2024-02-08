@@ -30,7 +30,7 @@ export module Helpers {
     }
 
     export function getEmail() {
-    	return randomEmail();
+    	return randomEmail({domain: 'ziffit.com'});
     }
 
     export function getPassword() {
