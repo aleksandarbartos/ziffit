@@ -88,16 +88,16 @@ describe('Ziffit Smoke Test Suit', () => {
 
 	it('Should not allow to complete trade with 9 scanned items', async () => {
 		await MainPage.openZiffit();
-		await MainPage.getItemValue(Helpers.randomizeData(testData.validBarcodes));
-		await BasketPage.scanMultipleItems(8);
+		await MainPage.openBasket();
+		await BasketPage.scanMultipleItems(9);
 		await expect(BasketPage.totalComputedValue).toBeDisplayed();
 		await expect(BasketPage.completeTradeBtn).not.toBeClickable();
 	});
 
 	it('Should allow to complete trade with 10 scanned items', async () => {
 		await MainPage.openZiffit();
-		await MainPage.getItemValue(Helpers.randomizeData(testData.validBarcodes));
-		await BasketPage.scanMultipleItems(9);
+		await MainPage.openBasket();
+		await BasketPage.scanMultipleItems(10);
 		await expect(BasketPage.totalComputedValue).toBeDisplayed();
 		await expect(BasketPage.completeTradeBtn).toBeClickable();
 	});

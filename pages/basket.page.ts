@@ -65,8 +65,8 @@ class BasketPage extends MainPage {
 		for (let i = 0; i < scanItem; i++) {
 			await this.addBarcode(Helpers.randomizeData(testData.validBarcodes));
 			if (await this.errorMessage.isDisplayed() === true) {
-				console.log('Barcode was not added to the input');
-				throw new Error ('Barcode was not added to the input');
+				console.log(await this.errorMessage.getText());
+				throw new Error (await this.errorMessage.getText());
 			} else {
 				await this.getValueBtn.waitForClickable();
 				await this.totalComputedValue.waitForDisplayed();
@@ -86,6 +86,7 @@ class BasketPage extends MainPage {
 	}
 
 	public async removeItem (listItemNumber: number) {
+		await this.successBanner.waitForDisplayed();
 		await this.listItemTitle[listItemNumber - 1].waitForDisplayed();
 		await this.listItemRemove[listItemNumber - 1].waitForClickable();
 		await this.listItemRemove[listItemNumber - 1].click();

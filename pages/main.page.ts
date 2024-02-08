@@ -92,15 +92,17 @@ export default class MainPage {
 
 	public static async acceptCookies () {
 		if (await this.cookieOverlay.isDisplayed() === true) {	
-			await this.acceptCookiesBtn.waitForClickable();
+			await this.acceptCookiesBtn.waitForDisplayed();
 			await this.acceptCookiesBtn.click();
-		}
+		};
+		await this.loginBtn.waitForDisplayed();
 	}
 
 	public static async closeSubscriptionBox() {
 		if (await this.subscriptionBox.isDisplayed() === true ) {
 			await this.subscriptionBox.click();
-		}
+		};
+		await this.loginBtn.waitForDisplayed();
 	}
 
 	public static async openLogin () {
@@ -115,27 +117,27 @@ export default class MainPage {
 
 	public static async clickMenuItem(menuItem: Helpers.MenuItems) {
 		switch (menuItem) {
-		case Helpers.MenuItems.Sell:
-			await this.menuSell.waitForClickable();
-			await this.menuSell.click();
-			break;
-		case Helpers.MenuItems.HowItWorks:
-			await this.menuHowItWorks.waitForClickable();
-			await this.menuHowItWorks.click();
-			break;
-		case Helpers.MenuItems.ZiffitApp:
-			await this.menuZiffitApp.waitForClickable();
-			await this.menuZiffitApp.click();
-			break;
-		case Helpers.MenuItems.AboutUs:
-			await this.menuAboutUs.waitForClickable();
-			await this.menuAboutUs.click();
-			break;
-		case Helpers.MenuItems.Help:
-			await this.menuHelp.waitForClickable();
-			await this.menuHelp.click();
-			break;
-		}
+			case Helpers.MenuItems.Sell:
+				await this.menuSell.waitForClickable();
+				await this.menuSell.click();
+				break;
+			case Helpers.MenuItems.HowItWorks:
+				await this.menuHowItWorks.waitForClickable();
+				await this.menuHowItWorks.click();
+				break;
+			case Helpers.MenuItems.ZiffitApp:
+				await this.menuZiffitApp.waitForClickable();
+				await this.menuZiffitApp.click();
+				break;
+			case Helpers.MenuItems.AboutUs:
+				await this.menuAboutUs.waitForClickable();
+				await this.menuAboutUs.click();
+				break;
+			case Helpers.MenuItems.Help:
+				await this.menuHelp.waitForClickable();
+				await this.menuHelp.click();
+				break;
+			}
 	}
 
 	public static async addBarcode (barcode: string) {
