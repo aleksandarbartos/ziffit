@@ -211,8 +211,9 @@ export const config: Options.Testrunner = {
 	/**
      * Function to be executed before a test (in Mocha/Jasmine) starts.
      */
-	// beforeTest: function (test, context) {
-	// },
+	beforeTest: async function () {
+		await browser.reloadSession();
+	},
 	/**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
      * beforeEach in Mocha)
@@ -235,9 +236,8 @@ export const config: Options.Testrunner = {
      * @param {boolean} result.passed    true if test has passed, otherwise false
      * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-	afterTest: async function() {
-		await browser.reloadSession();
-	},
+	//afterTest: function() {
+	//},
 
 	/**
      * Hook that gets executed after the suite has ended
