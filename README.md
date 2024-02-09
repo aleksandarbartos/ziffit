@@ -36,7 +36,7 @@ npm install
 ```
 
 3. After npm install a node_modules folder and a package-lock.json file should be present in the project directory
-4. Make sure the testData folder files contain data and are not empty
+4. Make sure the test/testData folder files contain data and are not empty
 
 ### Executable scripts:
 
@@ -99,6 +99,7 @@ Not covered test cases in the Smoke suit as the tests run on Production environm
 - Some selectors could not be precisely defined, as multiple elements share the same selectors, findElements method with indexing was used for these:
    - RegistrationPage.requiredErrorMessage
    - BasketPage.listItemTitle, BasketPage.listItemRemove (findElements used on purpose to enable deletion of any item in the list)
+
 - wdio.config beforeTest hook (additional empty session before first test)
 
 ### Smoke test suit
