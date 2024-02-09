@@ -94,11 +94,12 @@ Not covered test cases in the Smoke suit as the tests run on Production environm
 - Successful login
 - Successful registration
 
-### Possibly unstable solutions due to application structure
+### Possibly unstable solutions
 
 - Some selectors could not be precisely defined, as multiple elements share the same selectors, findElements method with indexing was used for these:
    - RegistrationPage.requiredErrorMessage
    - BasketPage.listItemTitle, BasketPage.listItemRemove (findElements used on purpose to enable deletion of any item in the list)
+- wdio.config beforeTest hook (additional empty session before first test)
 
 ### Smoke test suit
 
